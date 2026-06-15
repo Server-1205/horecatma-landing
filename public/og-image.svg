@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF7ED"/>
+      <stop offset="50%" style="stop-color:#FFEDD5"/>
+      <stop offset="100%" style="stop-color:#FED7AA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="200" height="60" rx="30" fill="#F97316"/>
+  <text x="160" y="100" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">HorecaTMA</text>
+  <text x="600" y="220" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="300" fill="#1A1A1A" text-anchor="middle" letter-spacing="-1">Кафе без бумаги.</text>
+  <text x="600" y="290" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="300" fill="#F97316" text-anchor="middle" letter-spacing="-1">Заказы в Telegram.</text>
+  <text x="600" y="360" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="#6B7280" text-anchor="middle">Telegram Mini App для кафе и ресторанов Узбекистана</text>
+  <rect x="450" y="420" width="300" height="60" rx="30" fill="#F97316"/>
+  <text x="600" y="460" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600" fill="white" text-anchor="middle">Попробовать бесплатно</text>
+  <text x="600" y="540" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="400" fill="#9CA3AF" text-anchor="middle">$10-20/мес · 14 дней бесплатно</text>
+</svg>

@@ -6,3 +6,4 @@ dist
 .env.*
 screenshot-*.png
 .astro/
+.vercel

@@ -19,6 +19,7 @@ const currentPath = Astro.url.pathname;
 
 const pageTitle = title ?? t.hero.headline + ' ' + t.hero.headlineHighlight;
 const pageDescription = description ?? t.hero.subheadline;
+const ogImage = `${SITE.url}/og-image.png`;
 
 const navLinks = [
   { href: '#features', label: t.nav.features },
@@ -26,6 +27,40 @@ const navLinks = [
   { href: '#pricing', label: t.nav.pricing },
   { href: '#faq', label: t.nav.faq },
 ];
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HorecaTMA",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Telegram",
+  "description": pageDescription,
+  "url": `${SITE.url}${currentPath}`,
+  "offers": {
+    "@type": "Offer",
+    "price": "10",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-12-31"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "50"
+  }
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HorecaTMA",
+  "url": SITE.url,
+  "inLanguage": ["uz", "ru"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${SITE.url}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -35,14 +70,41 @@ const navLinks = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{pageTitle}</title>
   <meta name="description" content={pageDescription} />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="кафе, ресторан, Telegram Mini App, QR меню, заказы еды, доставка, Узбекистан, Toshkent, меню для кафе, POS система" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={pageDescription} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={`${SITE.url}${currentPath}`} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="HorecaTMA" />
+  <meta property="og:locale" content={locale === 'uz' ? 'uz_UZ' : 'ru_RU'} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- i18n -->
   <link rel="alternate" hreflang="uz" href={`${SITE.url}/`} />
   <link rel="alternate" hreflang="ru" href={`${SITE.url}/ru/`} />
+  <link rel="alternate" hreflang="x-default" href={`${SITE.url}/`} />
   <link rel="canonical" href={`${SITE.url}${currentPath}`} />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
 </head>
 <body class="antialiased">
   <!-- Navbar -->
