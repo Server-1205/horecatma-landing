@@ -1,0 +1,38 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import FaqAccordion from '../islands/FaqAccordion';
+import { type Locale, getTranslations } from '../../i18n/index';
+import { FAQ } from '../../lib/constants';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+const faqItems = FAQ.map((item) => ({
+  q: item.q[locale],
+  a: item.a[locale],
+}));
+---
+
+<section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-brand-50/30">
+  <div class="max-w-3xl mx-auto">
+    <SectionHeading title={t.faq.title} />
+    <FaqAccordion items={faqItems} client:load />
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQ.map((item) => ({
+    "@type": "Question",
+    "name": item.q[locale],
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a[locale]
+    }
+  }))
+})} />

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../components/layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Problem from '../components/sections/Problem.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Features from '../components/sections/Features.astro';
+import Roles from '../components/sections/Roles.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Comparison from '../components/sections/Comparison.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CtaFooter from '../components/sections/CtaFooter.astro';
+import type { Locale } from '../i18n/index';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'ru' } },
+  ];
+}
+
+const { slug } = Astro.params;
+const locale = slug as Locale;
+---
+
+<BaseLayout locale={locale}>
+  <Hero locale={locale} />
+  <Problem locale={locale} />
+  <HowItWorks locale={locale} />
+  <Features locale={locale} />
+  <Roles locale={locale} />
+  <Pricing locale={locale} />
+  <Comparison locale={locale} />
+  <Testimonials locale={locale} />
+  <FAQ locale={locale} />
+  <CtaFooter locale={locale} />
+</BaseLayout>

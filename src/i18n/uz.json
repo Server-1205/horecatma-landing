@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "features": "Funksiyalar",
+    "howItWorks": "Qanday ishlaydi",
+    "pricing": "Narxlar",
+    "faq": "Ko'p beriladigan savollar",
+    "cta": "Bepul sinab ko'ring"
+  },
+  "hero": {
+    "headline": "Kafesiz qog'ozsiz.",
+    "headlineHighlight": "Buyurtmalar Telegramda.",
+    "subheadline": "Telegram Mini App — menyu → buyurtma → oshxona → yetkazish → to'lov → analitika. Kafelar va oshxona uchun to'liq yechim.",
+    "cta": "Bepul sinab ko'ring",
+    "price": "10-20$/oy · 14 kun bepul",
+    "socialProof": "50+ kafe allaqachon ishlatmoqda"
+  },
+  "problem": {
+    "title": "Bugun kafeler shunday ishlaydi:",
+    "subtitle": "Bu muammolar sizga tanishmi?"
+  },
+  "howItWorks": {
+    "title": "Qanday ishlaydi?",
+    "subtitle": "3 qadam — va kafe buyurtma qabul qiladi",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Menyoni sozlang",
+        "description": "Kategoriyalar va taomlarni 15 daqiqada qo'shing. Rasmlar, narxlar, tavsiflar — hammasi bir joyda."
+      },
+      {
+        "number": "2",
+        "title": "Mehmon QR skanerlaydi",
+        "description": "Har bir stol QR-kodga ega. Mehmon Telegram'da menyoni ochadi — ilova yuklash shart emas."
+      },
+      {
+        "number": "3",
+        "title": "Buyurtma oshxonaga ketadi",
+        "description": "Oshpaz xabarni darhol oladi. Status real vaqtda yangilanadi."
+      }
+    ]
+  },
+  "features": {
+    "title": "Hammasi bir joyda",
+    "subtitle": "Kafe uchun kerakli hamma narsa"
+  },
+  "roles": {
+    "title": "Har bir kishi uchun — o'z foydasi"
+  },
+  "pricing": {
+    "title": "Shaffof narxlar",
+    "subtitle": "Yashirin to'lovlarsiz",
+    "popular": "Mashhur",
+    "perMonth": "/oy",
+    "startFree": "Bepul boshlash",
+    "trialNote": "14 kun har qanday rejada bepul"
+  },
+  "comparison": {
+    "title": "O'zingiz solishtiring",
+    "horeca": "HorecaTMA",
+    "pos": "POS (iiko/Clopos)",
+    "aggregator": "Aggregatorlar",
+    "feature": "Xususiyat"
+  },
+  "testimonials": {
+    "title": "Kafe egalari nima deydi",
+    "rating": "4.8/5 — 50+ kafe asosida"
+  },
+  "faq": {
+    "title": "Ko'p beriladigan savollar"
+  },
+  "cta": {
+    "title": "Boshlashga tayyormisiz?",
+    "subtitle": "14 kun bepul sinab ko'ring. Karta bog'lash shart emas.",
+    "cta": "Bepul boshlash",
+    "support": "Yoki yozing:"
+  },
+  "footer": {
+    "description": "Telegram Mini App — kafeler va oshxona uchun",
+    "product": "Mahsulot",
+    "company": "Kompaniya",
+    "support": "Qo'llab-quvvatlash",
+    "contacts": "Kontaktlar",
+    "faq": "Ko'p beriladigan savollar",
+    "copyright": "Barcha huquqlar himoyalangan. Made in Uzbekistan"
+  }
+}

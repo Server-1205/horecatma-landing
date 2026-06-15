@@ -1,0 +1,80 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Locale, getTranslations } from '../../i18n/index';
+import { COMPARISON } from '../../lib/constants';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-brand-50/30 to-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeading title={t.comparison.title} />
+
+    <div class="max-w-5xl mx-auto overflow-x-auto bg-white rounded-xl border border-gray-100 shadow-sm">
+      <table class="w-full min-w-[640px]">
+        <thead>
+          <tr class="border-b border-gray-100">
+            <th class="text-left py-5 px-6 text-sm font-medium text-gray-500 w-1/4">{t.comparison.feature}</th>
+            <th class="text-center py-5 px-6 text-sm font-medium text-brand-600 bg-brand-50/50 rounded-t-xl">{t.comparison.horeca}</th>
+            <th class="text-center py-5 px-6 text-sm font-medium text-gray-700">{t.comparison.pos}</th>
+            <th class="text-center py-5 px-6 text-sm font-medium text-gray-700">{t.comparison.aggregator}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {COMPARISON.map((row) => (
+            <tr class="border-b border-gray-50 last:border-0 hover:bg-gray-50/50 transition-colors">
+              <td class="py-4 px-6 text-sm font-medium text-gray-900">{row.feature[locale]}</td>
+              <td class="py-4 px-6 text-center bg-brand-50/30">
+                <div class="flex items-center justify-center gap-2">
+                  {row.horecaOk ? (
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class="text-sm text-gray-700">{row.horeca[locale]}</span>
+                </div>
+              </td>
+              <td class="py-4 px-6 text-center">
+                <div class="flex items-center justify-center gap-2">
+                  {row.posOk ? (
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class="text-sm text-gray-600">{row.pos[locale]}</span>
+                </div>
+              </td>
+              <td class="py-4 px-6 text-center">
+                <div class="flex items-center justify-center gap-2">
+                  {row.aggregatorOk ? (
+                    <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class="text-sm text-gray-600">{row.aggregator[locale]}</span>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

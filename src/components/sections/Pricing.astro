@@ -1,0 +1,66 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+import { SITE, PRICING } from '../../lib/constants';
+import { type Locale, getTranslations } from '../../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section id="pricing" class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeading title={t.pricing.title} subtitle={t.pricing.subtitle} />
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {PRICING.map((plan, i) => (
+        <div class={`relative rounded-xl p-8 transition-all duration-300 animate-slide-up stagger-${i + 1} ${
+          plan.popular
+            ? 'bg-brand-900 text-white border border-brand-800 shadow-xl shadow-brand-900/20'
+            : 'bg-white border border-gray-100 hover:shadow-lg hover:shadow-gray-100/80'
+        }`}>
+          {plan.popular && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <Badge variant="orange">{t.pricing.popular}</Badge>
+            </div>
+          )}
+
+          <div class="text-center mb-8">
+            <h3 class={`text-xl font-light mb-2 tracking-[-0.01em] ${plan.popular ? 'text-white' : 'text-gray-900'}`}>{plan.name[locale]}</h3>
+            <p class={`text-sm mb-4 font-light ${plan.popular ? 'text-gray-300' : 'text-gray-500'}`}>{plan.target[locale]}</p>
+            <div class="flex items-baseline justify-center gap-1">
+              <span class={`text-4xl font-light tracking-[-0.03em] ${plan.popular ? 'text-white' : 'text-gray-900'}`}>${plan.price}</span>
+              <span class={`${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{t.pricing.perMonth}</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 mb-8">
+            {plan.features[locale].map((feature) => (
+              <li class={`flex items-start gap-3 text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                <svg class={`w-5 h-5 shrink-0 mt-0.5 ${plan.popular ? 'text-brand-400' : 'text-brand-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <Button
+            href={SITE.botUrl}
+            variant={plan.popular ? 'secondary' : 'primary'}
+            class={`w-full ${plan.popular ? 'bg-white text-brand-900 hover:bg-gray-100 border-0' : ''}`}
+          >
+            {t.pricing.startFree}
+          </Button>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-gray-400 mt-8 font-light">{t.pricing.trialNote}</p>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Locale, getTranslations } from '../../i18n/index';
+import { PROBLEMS } from '../../lib/constants';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeading title={t.problem.title} subtitle={t.problem.subtitle} />
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {PROBLEMS.map((problem, i) => (
+        <div class={`bg-white rounded-xl border border-gray-100 p-6 hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 animate-slide-up stagger-${i + 1}`}>
+          <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 mb-2 tracking-[-0.01em]">{problem.title[locale]}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed font-light">{problem.description[locale]}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

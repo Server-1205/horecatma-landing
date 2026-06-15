@@ -1,0 +1,118 @@
+---
+import Button from '../ui/Button.astro';
+import { SITE } from '../../lib/constants';
+import { type Locale, getTranslations } from '../../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <!-- Gradient mesh backdrop -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-orange-50 to-rose-50"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-brand-200/40 via-peach-200/30 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-violet-200/20 via-brand-100/30 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-brand-100/20 via-rose-100/20 to-violet-100/20 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div class="text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-brand-900 leading-[1.05] tracking-[-0.03em] mb-6">
+          {t.hero.headline}
+          <br />
+          <span class="text-brand-500">{t.hero.headlineHighlight}</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-500 mb-8 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+          {t.hero.subheadline}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <Button href={SITE.botUrl} size="lg">
+            {t.hero.cta}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Button>
+        </div>
+        <p class="text-sm text-gray-400 mt-4 font-light">{t.hero.price}</p>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="relative w-72 h-[580px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl animate-float">
+          <!-- Notch -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10"></div>
+          <!-- Screen -->
+          <div class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden flex flex-col">
+            <!-- Status bar -->
+            <div class="h-12 bg-brand-500 flex items-end px-6 pb-2">
+              <span class="text-white text-xs font-medium">HorecaTMA</span>
+            </div>
+            <!-- Content -->
+            <div class="flex-1 p-4 space-y-3">
+              <div class="flex gap-2">
+                <div class="px-3 py-1 bg-brand-100 text-brand-700 rounded-full text-xs font-medium">Milliy</div>
+                <div class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">Shashlik</div>
+                <div class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">Ichimlik</div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-xl">
+                  <div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center text-xl">🍱</div>
+                  <div class="flex-1">
+                    <div class="text-sm font-semibold text-gray-900">Osh</div>
+                    <div class="text-xs text-gray-500">An'anaviy o'zbek oshi</div>
+                  </div>
+                  <div class="text-sm font-bold text-brand-500 font-tabular">18 000</div>
+                </div>
+                <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-xl">
+                  <div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center text-xl">🥩</div>
+                  <div class="flex-1">
+                    <div class="text-sm font-semibold text-gray-900">Shashlik</div>
+                    <div class="text-xs text-gray-500">Qo'z go'shti</div>
+                  </div>
+                  <div class="text-sm font-bold text-brand-500 font-tabular">35 000</div>
+                </div>
+                <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-xl">
+                  <div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center text-xl">🥗</div>
+                  <div class="flex-1">
+                    <div class="text-sm font-semibold text-gray-900">Vitamin</div>
+                    <div class="text-xs text-gray-500">Yangi sabzavotlar</div>
+                  </div>
+                  <div class="text-sm font-bold text-brand-500 font-tabular">12 000</div>
+                </div>
+              </div>
+              <div class="bg-brand-500 text-white rounded-full py-3 text-center text-sm font-semibold">
+                Buyurtma berish
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social proof -->
+    <div class="mt-16 text-center">
+      <p class="text-sm text-gray-500 mb-6 font-light">{t.hero.socialProof}</p>
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
+        <div class="flex items-center gap-2 text-gray-400">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="text-sm font-medium">4.8/5</span>
+        </div>
+        <div class="flex items-center gap-2 text-gray-400">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span class="text-sm font-medium">50+ кафе</span>
+        </div>
+        <div class="flex items-center gap-2 text-gray-400">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="text-sm font-medium">15 мин настройка</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

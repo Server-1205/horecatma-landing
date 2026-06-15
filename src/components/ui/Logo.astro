@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<a href="/" class={`flex items-center gap-2 ${className}`}>
+  <div class="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center">
+    <span class="text-white font-bold text-xl">H</span>
+  </div>
+  <span class="text-xl font-bold text-gray-900">HorecaTMA</span>
+</a>
