@@ -9,12 +9,12 @@ export const SITE = {
     ru: 'Полное решение для кафе: меню → заказ → кухня → доставка → оплата → аналитика',
   },
   url: 'https://horeca.uz',
-  botUrl: 'https://t.me/HorecaTMA_bot',
-  supportUrl: 'https://t.me/HorecaTMA_support',
+  botUrl: 'https://t.me/horeca_tma_bot',
+  supportUrl: 'https://t.me/horeca_tma_bot',
 };
 
 export const SOCIALS = {
-  telegram: 'https://t.me/HorecaTMA',
+  telegram: 'https://t.me/horeca_tma_bot',
   instagram: 'https://instagram.com/horecatma',
 };
 
