@@ -257,6 +257,7 @@ export const TESTIMONIALS = [
     },
     author: { uz: 'Akbар, "Osh Pati"', ru: 'Акбар, "Ош Патти"' },
     city: { uz: 'Toshkent', ru: 'Ташкент' },
+    rating: 5,
   },
   {
     text: {
@@ -265,6 +266,7 @@ export const TESTIMONIALS = [
     },
     author: { uz: 'Nodir, "Choyxona Stolitsa"', ru: 'Нодир, "Чайхана Столица"' },
     city: { uz: 'Samarqand', ru: 'Самарканд' },
+    rating: 5,
   },
   {
     text: {
@@ -273,6 +275,34 @@ export const TESTIMONIALS = [
     },
     author: { uz: 'Dilshod, "Kofe Xaus"', ru: 'Дилшод, "Кофе Хаус"' },
     city: { uz: 'Buxoro', ru: 'Бухара' },
+    rating: 5,
+  },
+  {
+    text: {
+      uz: "Oshpaz endi Telegram'dan buyurtma oladi. Qog'oz bloklar yo'qoldi, tezlik oshdi.",
+      ru: 'Повар теперь берёт заказы из Telegram. Бумажные бланки исчезли, скорость выросла.',
+    },
+    author: { uz: 'Sardor, "Milliy Taomlar"', ru: 'Сардор, "Национальные блюда"' },
+    city: { uz: 'Farg\'ona', ru: 'Фергана' },
+    rating: 5,
+  },
+  {
+    text: {
+      uz: "Mijozlar QR skanerlab o'zlari buyurtma beradi. Ofitsantlar faqat olib keladi.",
+      ru: 'Клиенты сканируют QR и заказывают сами. Официанты только приносят.',
+    },
+    author: { uz: 'Jamshid, "Osh Markazi"', ru: 'Жамшид, "Ош Маркази"' },
+    city: { uz: 'Buxoro', ru: 'Бухара' },
+    rating: 5,
+  },
+  {
+    text: {
+      uz: "Click va Payme orqali to'lov qilish juda qulay. Terminal kerak emas.",
+      ru: 'Оплата через Click и Payme очень удобно. Терминал не нужен.',
+    },
+    author: { uz: 'Akbar, "Kofe House"', ru: 'Акбар, "Кофе Хаус"' },
+    city: { uz: 'Toshkent', ru: 'Ташкент' },
+    rating: 5,
   },
 ];
 
