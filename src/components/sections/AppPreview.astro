@@ -11,17 +11,16 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 
 // ПОЧЕМУ: имена файлов скриншотов соответствуют порядку в i18n
+// ПОЧЕМУ: удалены 03-item-detail, 06-order-status, 10-order-detail —
+// они содержат error/empty state (нет demo item/order в БД)
 const SCREEN_NAMES = [
   '01-restaurant-select',
   '02-menu-browse',
-  '03-item-detail',
   '04-cart',
   '05-checkout',
-  '06-order-status',
   '07-order-history',
   '08-profile',
   '09-active-orders',
-  '10-order-detail',
   '11-manual-order',
   '12-dashboard',
   '13-menu-management',

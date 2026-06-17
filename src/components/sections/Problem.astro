@@ -11,7 +11,12 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 ---
 
-<section class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+<section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <!-- Subtle background -->
+  <div class="absolute inset-0 -z-10">
+    <img src="/images/restaurant-interior.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+    <div class="absolute inset-0 bg-white/90"></div>
+  </div>
   <div class="max-w-7xl mx-auto">
     <SectionHeading title={t.problem.title} subtitle={t.problem.subtitle} />
 
