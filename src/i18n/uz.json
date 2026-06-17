@@ -39,6 +39,50 @@
       }
     ]
   },
+  "appPreview": {
+    "title": "Ilovani ko'ring",
+    "subtitle": "HorecaTMA ning barcha ekranlari",
+    "description": "Menyudan tortib analitikagacha — hammasi Telegram ichida. Ilova yuklash shart emas.",
+    "bullet1": "Mehmon QR skanerlab buyurtma beradi — 15 soniya",
+    "bullet2": "Oshpaz buyurtmani Telegram'da oladi — qog'oz yo'q",
+    "bullet3": "Egasi tushumni telefonda ko'radi — real vaqtda",
+    "screens": [
+      "Restoran tanlash",
+      "Menyuni ko'rish",
+      "Taom tafsilotlari",
+      "Savat",
+      "Buyurtma rasmiylashtirish",
+      "Buyurtma statusi",
+      "Buyurtmalar tarixi",
+      "Profil",
+      "Faol buyurtmalar",
+      "Buyurtma tafsilotlari",
+      "Qo'lda buyurtma",
+      "Dashboard",
+      "Menyu boshqaruvi",
+      "Hisobotlar",
+      "Xodimlar",
+      "Sozlamalar"
+    ],
+    "screensRu": [
+      "Выбор ресторана",
+      "Просмотр меню",
+      "Детали блюда",
+      "Корзина",
+      "Оформление заказа",
+      "Статус заказа",
+      "История заказов",
+      "Профиль",
+      "Активные заказы",
+      "Детали заказа",
+      "Ручной заказ",
+      "Дашборд",
+      "Управление меню",
+      "Отчёты",
+      "Сотрудники",
+      "Настройки"
+    ]
+  },
   "features": {
     "title": "Hammasi bir joyda",
     "subtitle": "Kafe uchun kerakli hamma narsa"

@@ -1,0 +1,90 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import PhoneCarousel from '../islands/PhoneCarousel';
+import { type Locale, getTranslations } from '../../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+// ПОЧЕМУ: имена файлов скриншотов соответствуют порядку в i18n
+const SCREEN_NAMES = [
+  '01-restaurant-select',
+  '02-menu-browse',
+  '03-item-detail',
+  '04-cart',
+  '05-checkout',
+  '06-order-status',
+  '07-order-history',
+  '08-profile',
+  '09-active-orders',
+  '10-order-detail',
+  '11-manual-order',
+  '12-dashboard',
+  '13-menu-management',
+  '14-reports',
+  '15-staff-management',
+  '16-settings',
+];
+
+const screenCaptionsUz = t.appPreview.screens as string[];
+const screenCaptionsRu = t.appPreview.screensRu as string[];
+
+const screens = SCREEN_NAMES.map((name, i) => ({
+  name,
+  captionUz: screenCaptionsUz[i] ?? name,
+  captionRu: screenCaptionsRu[i] ?? name,
+}));
+---
+
+<section id="app-preview" class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeading
+      title={t.appPreview.title}
+      subtitle={t.appPreview.subtitle}
+    />
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div class="text-center lg:text-left order-2 lg:order-1">
+        <p class="text-lg text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          {t.appPreview.description}
+        </p>
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            <span class="text-gray-600">{t.appPreview.bullet1}</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            <span class="text-gray-600">{t.appPreview.bullet2}</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            <span class="text-gray-600">{t.appPreview.bullet3}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Phone mockup carousel -->
+      <div class="order-1 lg:order-2 flex justify-center">
+        <PhoneCarousel client:load {screens} {locale} />
+      </div>
+    </div>
+  </div>
+</section>
